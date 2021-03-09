@@ -32,7 +32,7 @@
   rsb.menu.value = {"Admin":"arcesb_admin","Standard":"arcesb_standard","Support":"arcesb_support"};
 
   $(function(){
-    //first enumerate,second filter,then map
+    //first enumerate,second filter,then map them
     $("#first,#second").find("option").each(function (){
       $(this).prop("value",rsb.menu.value[$(this).text()])
     })
