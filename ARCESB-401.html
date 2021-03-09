@@ -31,6 +31,16 @@
   // callback function in the  $(document).ready()
   $(document).ready(function () {
     check = function () {
+      // 1.try to programatically trigger the window.onbeforeunload event
+      // 2.understand the essense of the window.onbeforeunload event
+      // when the onbeforeunload triggers,the return value will decide
+      // if the F5 or new location will be redirected or not.
+      // F5 or new url will trigger
+
+      // Superficially,when you click or F5 ,the confirm will be called,
+      // then decide whether the following steps will be taken
+      // decompose them into atomic step and then bring them together
+      
       if (window.onbeforeunload && window.onbeforeunload()) {
         //when the return value has sth to do with the 
         return confirm("I am gonna leave");
