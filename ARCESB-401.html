@@ -41,6 +41,10 @@
       // then decide whether the following steps will be taken
       // decompose them into atomic step and then bring them together
       
+
+      // I cannot write the window.onbeforeunload here,because if I didn't 
+      // bind the callback function for window.onbeforeunload,the javascript
+      //  will throw a exception
       if (window.onbeforeunload && window.onbeforeunload()) {
         //when the return value has sth to do with the 
         return confirm("I am gonna leave");
