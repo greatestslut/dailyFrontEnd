@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+
+</head>
+
+<body>
+  <a href="https://www.baidu.com/">baidu</a>
+  <a onclick="check()" href="#">fake</a>
+
+
+
+
+</body>
+<script>
+  //this is a combined event,includs confirmSSS
+  window.onbeforeunload = function () {
+    return "I am gonna leave";
+  };
+  alert("1")
+  // because the dom's render sequence is from top to bottom, 
+  // maybe we need to bind the callback function for the element 
+  // which is not in the current page, so we should just keep the 
+  // callback function in the  $(document).ready()
+  $(document).ready(function () {
+    check = function () {
+      if (window.onbeforeunload && window.onbeforeunload()) {
+        //when the return value has sth to do with the 
+        return confirm("I am gonna leave");
+      }
+    }
+    alert("2")
+  });
+
+  $(document).ready(function () {
+    alert("3")
+  });
+</script>
+
+</html>
