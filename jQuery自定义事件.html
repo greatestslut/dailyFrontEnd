@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- jQuery imports -->
+  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+  <!-- bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+</head>
+<!-- regading radio, I guess DOM event, including click event and change event is enough for switch the radio -->
+
+<body>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="flexRadioDefault" id="radio-a">
+    <label class="form-check-label" for="radio-a">
+      A
+    </label>
+    <br>
+    <input class="form-check-input" type="radio" name="flexRadioDefault" id="radio-b" checked>
+    <label class="form-check-label" for="radio-b">
+      B
+    </label>
+    <br>
+    <input class="form-check-input" type="radio" name="flexRadioDefault" id="radio-c">
+    <label class="form-check-label" for="radio-c">
+      C
+    </label>
+  </div>
+  <div id="a">
+    <label class="form-check-label" for="radio-c">Showing A:</label>
+    <input type="text">
+  </div>
+  <div id="b">
+    <label class="form-check-label" for="radio-c">Showing B:</label>
+    <input type="text">
+  </div>
+  <div id="c">
+    <label class="form-check-label" for="radio-c">Showing C:</label>
+    <input type="text">
+  </div>
+</body>
+<script>
+  $(".form-check-input").on("change", function (e) {
+    if (e.currentTarget.getAttribute("id") == "radio-a") {
+      $("#a").show();
+      $("#b").hide();
+      $("#c").hide();
+    } else if (e.currentTarget.getAttribute("id") == "radio-b") {
+      $("#b").show();
+      $("#a").hide();
+      $("#c").hide();
+    } else {
+      $("#c").show();
+      $("#a").hide();
+      $("#b").hide();
+    }
+  });
+  $(document).ready(function () {
+    $(".form-check-input").trigger("change");
+  })
+</script>
+
+</html>
